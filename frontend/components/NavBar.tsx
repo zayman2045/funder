@@ -1,12 +1,13 @@
-import styles from '../styles/Home.module.css'
-import Image from 'next/image'
+import styles from "../styles/Home.module.css";
+import Image from "next/image";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
-export const NavBar= () => {
-    return (
-        <div className={styles.AppHeader}>
-            <Image src="/solanaLogo.png" height={30} width={200} alt="Solana Logo" />
-            <span>Funder</span>
-            <button>Connect</button>
-        </div>
-    )
-}
+export const NavBar = () => {
+  return (
+    <div className={styles.AppHeader}>
+      <Image src="/solanaLogo.png" height={30} width={200} alt="Solana Logo" />
+      <span>Funder</span>
+      <WalletMultiButton />
+    </div>
+  );
+};

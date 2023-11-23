@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import * as web3 from "@solana/web3.js";
 import styles from "../styles/Home.module.css";
 
 export default function SendSolForm() {
+  // Prevent SSR
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const [sol, setSol] = useState("");
   const [recipient, setRecipient] = useState("");
 

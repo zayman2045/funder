@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import styles from "../styles/Home.module.css";
 import { NavBar } from "../components/NavBar";
 import SendSolForm from "../components/SendSolForm";
+import WalletContextProvider from "../components/WalletContextProvider";
 import Head from "next/head";
 
 const Home: NextPage = () => {
@@ -12,11 +13,13 @@ const Home: NextPage = () => {
         <title>Funder</title>
         <meta name="description" content="Funder" />
       </Head>
-      <NavBar />
-      <div className={styles.AppBody}>
-        <p>(Display Balance Here)</p>
-        <SendSolForm />
-      </div>
+      <WalletContextProvider>
+        <NavBar />
+        <div className={styles.AppBody}>
+          <p>(Display Balance Here)</p>
+          <SendSolForm />
+        </div>
+      </WalletContextProvider>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { NavBar } from "../components/NavBar";
 import SendSolForm from "../components/SendSolForm";
 import WalletContextProvider from "../components/WalletContextProvider";
 import Head from "next/head";
+import BalanceDisplay from "@/components/BalanceDisplay";
 
 const Home: NextPage = () => {
   return (
@@ -16,7 +17,7 @@ const Home: NextPage = () => {
       <WalletContextProvider>
         <NavBar />
         <div className={styles.AppBody}>
-          <p>(Display Balance Here)</p>
+          <BalanceDisplay />
           <SendSolForm />
         </div>
       </WalletContextProvider>

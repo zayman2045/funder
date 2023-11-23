@@ -11,7 +11,7 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const endpoint = web3.clusterApiUrl("devnet");
   const wallets: any = [];
 
-  // Prevent SSR
+  // Prevent server-side rendering
   const [isClient, setIsClient] = useState(false);
   useEffect(() => {
     setIsClient(true);

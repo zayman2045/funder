@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import * as web3 from "@solana/web3.js";
-import styles from "../styles/Home.module.css";
 
 export default function SendSolForm() {
   // Prevent SSR
@@ -48,28 +47,38 @@ export default function SendSolForm() {
   };
 
   return (
-    <div>
-      <form onSubmit={sendSol} className={styles.form}>
-        <label htmlFor="amount">Amount (in SOL) to send:</label>
-        <input
-          id="amount"
-          type="text"
-          className={styles.formField}
-          placeholder="e.g. 0.1"
-          required
-          onChange={(e) => setSol(e.target.value)}
-        />
-        <br />
-        <label htmlFor="recipient">Send SOL to:</label>
-        <input
-          id="recipient"
-          type="text"
-          className={styles.formField}
-          placeholder="e.g. 4Zw1fXuYuJhWhu9KLEYMhiPEiqcpKd6akw3WRZCv84HA"
-          required
-          onChange={(e) => setRecipient(e.target.value)}
-        />
-        <button type="submit" className={styles.formButton}>
+    <div className="flex flex-col items-center justify-center min-h-screen">
+      <form className="p-6 bg-white rounded shadow-md" onSubmit={sendSol}>
+        <div className="mb-4">
+          <label className="block text-gray-700" htmlFor="amount">
+            Amount (in SOL) to send:
+          </label>
+          <input
+            className="mt-1 p-2 w-full border rounded-md"
+            id="amount"
+            type="text"
+            placeholder="e.g. 0.1"
+            required
+            onChange={(e) => setSol(e.target.value)}
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700" htmlFor="recipient">
+            Send SOL to:
+          </label>
+          <input
+            className="mt-1 p-2 w-full border rounded-md"
+            id="recipient"
+            type="text"
+            placeholder="e.g. 4Zw1fXuYuJhWhu9KLEYMhiPEiqcpKd6akw3WRZCv84HA"
+            required
+            onChange={(e) => setRecipient(e.target.value)}
+          />
+        </div>
+        <button
+          className="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
+          type="submit"
+        >
           Send
         </button>
       </form>

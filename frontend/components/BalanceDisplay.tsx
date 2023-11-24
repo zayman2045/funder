@@ -27,15 +27,15 @@ export default function BalanceDisplay() {
 
   // Display the balance
   return connected ? (
-    <div>
+    <div className="text-white">
       {isLoading ? (
-         <h2>&nbsp;</h2>
+        <h2>&nbsp;</h2>
       ) : (
         <h2>Balance: {balance} SOL</h2>
       )}
     </div>
   ) : (
-    <div>
+    <div className="text-white">
       <h2>Wallet Not Connected</h2>
     </div>
   );

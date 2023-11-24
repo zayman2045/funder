@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import * as web3 from "@solana/web3.js";
+import Link from "next/link";
 
 export default function SendSolForm() {
   // Prevent SSR
@@ -11,6 +12,7 @@ export default function SendSolForm() {
 
   const [sol, setSol] = useState("");
   const [recipient, setRecipient] = useState("");
+  const [transactionInfo, setTransactionInfo] = useState<string | null>(null);
 
   // Connect to wallet
   const { connection } = useConnection();
@@ -40,10 +42,9 @@ export default function SendSolForm() {
 
     // Send transaction and display confirmation
     sendTransaction(transaction, connection).then((signature) => {
-      console.log(`Transaction sent: ${signature}`);
+      const transactionUrl = `https://explorer.solana.com/tx/${signature}?cluster=devnet`;
+      setTransactionInfo(transactionUrl);
     });
-
-    console.log(`Send ${sol} SOL to ${recipient}`);
   };
 
   return (
@@ -85,6 +86,19 @@ export default function SendSolForm() {
           Send
         </button>
       </form>
+      {transactionInfo && (
+        <div className="mt-5 text-center border-purple-500 border p-5">
+          <p>Transaction Complete</p>
+          <a
+            href={transactionInfo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-purple-500 text-black px-4 py-2 mt-5 rounded hover:bg-purple-600"
+          >
+            View Transaction
+          </a>
+        </div>
+      )}
     </div>
   );
 }

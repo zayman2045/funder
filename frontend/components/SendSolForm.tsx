@@ -47,10 +47,13 @@ export default function SendSolForm() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
-      <form className="p-6 bg-white rounded shadow-md" onSubmit={sendSol}>
+    <div className="flex flex-col items-center justify-center mt-4">
+      <form
+        className="p-6 bg-black text-white rounded shadow-md w-4/5 md:max-w-2xl mx-auto border-2 border-purple-500"
+        onSubmit={sendSol}
+      >
         <div className="mb-4">
-          <label className="block text-gray-700" htmlFor="amount">
+          <label className="block" htmlFor="amount">
             Amount (in SOL) to send:
           </label>
           <input
@@ -63,7 +66,7 @@ export default function SendSolForm() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700" htmlFor="recipient">
+          <label className="block" htmlFor="recipient">
             Send SOL to:
           </label>
           <input
@@ -76,7 +79,7 @@ export default function SendSolForm() {
           />
         </div>
         <button
-          className="w-full py-2 px-4 bg-blue-500 text-white rounded hover:bg-blue-600"
+          className="w-full py-2 px-4 bg-purple-500 text-black rounded hover:bg-purple-600"
           type="submit"
         >
           Send

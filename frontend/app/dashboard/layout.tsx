@@ -10,7 +10,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <meta name="description" content="Funder Dashboard" />
       </Head>
       <div className="flex flex-col md:flex-row h-screen">
-        <div className="md:w-64">
+        <div className="md:w-60">
           <NavBar />
         </div>
         <div className="flex-1 overflow-auto">{children}</div>

@@ -9,14 +9,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <title>Funder Dashboard</title>
         <meta name="description" content="Funder Dashboard" />
       </Head>
-    <div className="flex flex-col md:flex-row">
-        <div className="md:w-1/4">
-            <NavBar />
+      <div className="flex flex-col md:flex-row h-screen">
+        <div className="md:w-64">
+          <NavBar />
         </div>
-        <div className="md:w-3/4">
-            {children}
-        </div>
-    </div>
+        <div className="flex-1 overflow-auto">{children}</div>
+      </div>
     </div>
   );
 }

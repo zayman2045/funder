@@ -23,7 +23,7 @@ export default function Home() {
         <meta name="description" content="Funder" />
       </Head>
       <div className={styles.AppBody}>
-        <h1>Welcome to Funder</h1>
+        <h1>Funder</h1>
         <h2>Connect your wallet to continue</h2>
         <WalletMultiButton />
       </div>

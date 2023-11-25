@@ -3,12 +3,21 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import { FC } from "react";
 import Link from "next/link";
 import funderLogo from "../public/funderLogo.png";
+import { usePathname } from "next/navigation";
 
 export const NavBar: FC = () => {
+  const pathname = usePathname();
+
   return (
     <div className="md:fixed md:inset-y-0 md:left-0 flex flex-col items-center h-full space-y-4 p-4 bg-gray-800 text-white">
       <div className="space-y-4">
-        <div className="border-b border-purple-500 w-full text-center pb-2">
+        <div
+          className={`border-b border-purple-500 w-full text-center pb-2 hover:border-custom-teal ${
+            pathname === "/dashboard"
+              ? "text-custom-teal border-custom-teal"
+              : ""
+          }`}
+        >
           <Link href="/dashboard">
             <Image src={funderLogo} height={30} width={200} alt="Funder Logo" />
           </Link>
@@ -16,21 +25,33 @@ export const NavBar: FC = () => {
         <div className="flex flex-col items-center space-y-4">
           <Link
             href="/dashboard/sendSol"
-            className="border-b border-purple-500 w-full text-center px-4 py-2 hover:bg-purple-700 hover:text-white"
+            className={`border border-purple-500 bg-black w-full text-center px-4 py-2 hover:border-custom-teal hover:text-custom-teal ${
+              pathname === "/dashboard/sendSol"
+                ? "text-custom-teal border-custom-teal"
+                : ""
+            }`}
           >
             Send SOL
           </Link>
           <Link
-            href="/dashboard"
-            className="border-b border-purple-500 w-full text-center px-4 py-2 hover:bg-purple-700 hover:text-white"
+            href="/transaction1"
+            className={`border border-purple-500 bg-black w-full text-center px-4 py-2 hover:border-custom-teal hover:text-custom-teal ${
+              pathname === "/transaction1"
+                ? "text-custom-teal border-custom-teal"
+                : ""
+            }`}
           >
-            New Transaction
+            Transaction 1
           </Link>
           <Link
-            href="/dashboard"
-            className="border-b border-purple-500 w-full text-center px-4 py-2 hover:bg-purple-700 hover:text-white"
+            href="/transaction2"
+            className={`border border-purple-500 bg-black w-full text-center px-4 py-2 hover:border-custom-teal hover:text-custom-teal ${
+              pathname === "/transaction2"
+                ? "text-custom-teal border-custom-teal"
+                : ""
+            }`}
           >
-            New Transaction
+            Transaction 2
           </Link>
         </div>
         <div className="flex justify-center">

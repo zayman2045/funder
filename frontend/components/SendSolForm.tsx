@@ -80,7 +80,7 @@ export default function SendSolForm() {
           />
         </div>
         <button
-          className="w-full py-2 px-4 bg-purple-500 text-black rounded hover:bg-purple-600"
+          className="w-full py-2 px-4 bg-purple-500 text-black rounded hover:bg-custom-teal"
           type="submit"
         >
           Send
@@ -89,14 +89,14 @@ export default function SendSolForm() {
       {transactionInfo && (
         <div className="mt-5 text-center border-purple-500 border p-5">
           <p>Transaction Complete</p>
-          <a
+          <Link
             href={transactionInfo}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-purple-500 text-black px-4 py-2 mt-5 rounded hover:bg-purple-600"
+            className="inline-block bg-purple-500 text-black px-4 py-2 mt-5 rounded hover:bg-custom-teal"
           >
             View Transaction
-          </a>
+          </Link>
         </div>
       )}
     </div>

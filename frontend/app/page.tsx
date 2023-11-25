@@ -7,14 +7,19 @@ import Head from "next/head";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 export default function Home() {
-  const { connected } = useWallet();
+  // const { connected } = useWallet();
   const router = useRouter();
+  const { wallet, publicKey, connected } = useWallet();
 
   useEffect(() => {
     if (connected) {
       router.push("/dashboard");
     }
   }, [connected, router]);
+
+  useEffect(() => {
+    console.log("Wallet state changed:", { wallet, publicKey, connected });
+  }, [wallet, publicKey, connected]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-black text-white">
@@ -50,9 +55,17 @@ export default function Home() {
             all in one place.
           </p>
         </div>
-        <div className="w-full max-w-xs md:max-w-[200px] flex flex-col items-center justify-center space-y-4 border border-purple-500 bg-black rounded-lg p-4 mx-auto text-white">
-          <p className="text-lg text-center font-bold">Connect your wallet to continue</p>
-          <div className="inline-block bg-purple-500 hover:bg-purple-700 text-black font-bold rounded">
+        <div
+          className={`w-full max-w-xs md:max-w-[200px] flex flex-col items-center justify-center space-y-4 border ${
+            wallet ? "border-custom-teal" : "border-purple-500"
+          } bg-black rounded-lg p-4 mx-auto text-white`}
+        >
+          <p className="text-lg text-center font-bold">
+            {wallet
+              ? "Connect your wallet to continue"
+              : "Select your wallet to continue"}
+          </p>
+          <div className="bg-purple-500 rounded">
             <WalletMultiButton />
           </div>
         </div>

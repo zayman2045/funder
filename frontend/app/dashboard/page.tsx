@@ -1,9 +1,9 @@
 "use client";
 import BalanceDisplay from "@/components/BalanceDisplay";
-import useCheckWalletConnection from "../hooks/useCheckWalletConnection";
+import useCheckWalletDisconnection from "../hooks/useCheckWalletDisconnection";
 
 export default function Dashboard() {
-  useCheckWalletConnection();
+  useCheckWalletDisconnection();
 
   return (
     <div>

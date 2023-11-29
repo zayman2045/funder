@@ -1,21 +1,15 @@
 "use client";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { useWallet } from "@solana/wallet-adapter-react";
 import Image from "next/image";
 import Head from "next/head";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+import useCheckWalletConnection from "./hooks/useCheckWalletConnection";
 
 export default function Home() {
-  // const { connected } = useWallet();
-  const router = useRouter();
   const { wallet, publicKey, connected } = useWallet();
 
-  useEffect(() => {
-    if (connected) {
-      router.push("/dashboard");
-    }
-  }, [connected, router]);
+  useCheckWalletConnection();
 
   useEffect(() => {
     console.log("Wallet state changed:", { wallet, publicKey, connected });

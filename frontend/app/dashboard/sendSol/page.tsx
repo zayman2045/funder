@@ -1,10 +1,10 @@
 "use client";
-import useCheckWalletConnection from "@/app/hooks/useCheckWalletConnection";
+import useCheckWalletDisconnection from "@/app/hooks/useCheckWalletDisconnection";
 import BalanceDisplay from "@/components/BalanceDisplay";
 import SendSolForm from "@/components/SendSolForm";
 
 export default function Dashboard() {
-  useCheckWalletConnection();
+  useCheckWalletDisconnection();
 
   return (
     <div>

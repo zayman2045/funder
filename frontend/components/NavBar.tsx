@@ -11,17 +11,17 @@ export const NavBar: FC = () => {
   return (
     <div className="md:fixed md:inset-y-0 md:left-0 flex flex-col items-center h-full space-y-4 p-4 bg-gray-800 text-white">
       <div className="space-y-4">
-        <div
-          className={`border-b border-purple-500 w-full text-center pb-2 hover:border-custom-teal ${
-            pathname === "/dashboard"
-              ? "text-custom-teal border-custom-teal"
-              : ""
-          }`}
-        >
-          <Link href="/dashboard">
-            <Image src={funderLogo} height={30} width={200} alt="Funder Logo" />
-          </Link>
-        </div>
+        <Link href="/dashboard">
+          <div
+            className={`border-b border-purple-500 w-48 h-10 text-center pb-2 hover:border-custom-teal ${
+              pathname === "/dashboard"
+                ? "text-custom-teal border-custom-teal"
+                : ""
+            }`}
+          >
+            <Image src={funderLogo} alt="Funder Logo" />
+          </div>
+        </Link>
         <div className="flex flex-col items-center space-y-4">
           <Link
             href="/dashboard/sendSol"

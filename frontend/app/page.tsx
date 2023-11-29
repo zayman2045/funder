@@ -1,5 +1,4 @@
 "use client";
-import { useEffect } from "react";
 import { useWallet } from "@solana/wallet-adapter-react";
 import Image from "next/image";
 import Head from "next/head";
@@ -7,13 +6,9 @@ import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 import useCheckWalletConnection from "./hooks/useCheckWalletConnection";
 
 export default function Home() {
-  const { wallet, publicKey, connected } = useWallet();
+  const { wallet } = useWallet();
 
   useCheckWalletConnection();
-
-  useEffect(() => {
-    console.log("Wallet state changed:", { wallet, publicKey, connected });
-  }, [wallet, publicKey, connected]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2 bg-black text-white">

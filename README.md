@@ -1,6 +1,6 @@
 # Funder
 
-Funder is a full stack decentralized application (dApp) that runs a custom Solana on-chain program. 
+Funder is a full-stack decentralized application (dApp) that runs a custom Solana on-chain program. 
 
 ## Overview
 

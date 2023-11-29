@@ -5,18 +5,12 @@ import Link from "next/link";
 import BalanceDisplay from "./BalanceDisplay";
 
 export default function SendSolForm() {
-  // Prevent SSR
-  const [isClient, setIsClient] = useState(false);
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   const [sol, setSol] = useState("");
   const [recipient, setRecipient] = useState("");
   const [transactionInfo, setTransactionInfo] = useState<string | null>(null);
   const [showTransactionInfo, setShowTransactionInfo] = useState(true);
   const [balanceUpdate, setBalanceUpdate] = useState(false);
-
+  
   const updateBalance = () => {
     setBalanceUpdate((prevState) => !prevState);
   };
@@ -27,7 +21,8 @@ export default function SendSolForm() {
 
   const sendSol = (event: React.FormEvent) => {
     event.preventDefault();
-
+    setTransactionInfo(null);
+    
     // Check if wallet is connected
     if (!connection || !publicKey) {
       alert("Connection not found");
@@ -50,6 +45,7 @@ export default function SendSolForm() {
     // Send transaction and display confirmation
     sendTransaction(transaction, connection).then((signature) => {
       const transactionUrl = `https://explorer.solana.com/tx/${signature}?cluster=devnet`;
+      setShowTransactionInfo(true)
       setTransactionInfo(transactionUrl);
 
       // Update balance, giving 1 second for Solana to process transaction
@@ -104,7 +100,7 @@ export default function SendSolForm() {
           <div className="mt-5 text-center border-purple-500 border p-5 relative">
             <button
               onClick={() => setShowTransactionInfo(false)}
-              className="absolute top-[-9%] right-[-6%] px-2 bg-purple-500 text-white rounded-full"
+              className="absolute top-[-9%] right-[-6%] px-2 bg-purple-500 text-black hover:bg-custom-teal rounded-full cursor-pointer"
             >
               X
             </button>

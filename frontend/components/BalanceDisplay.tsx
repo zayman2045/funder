@@ -2,16 +2,19 @@ import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import * as web3 from "@solana/web3.js";
 import { useEffect, useState } from "react";
 
-export default function BalanceDisplay() {
+interface BalanceDisplayProps {
+  externalUpdate: boolean;
+}
 
-  // Get connection and wallet from the provider
+// Displays wallet balance and updates on changes in connection, wallet, or due to an external update request
+export default function BalanceDisplay({ externalUpdate }: BalanceDisplayProps) {
   const { connection } = useConnection();
   const { publicKey, connected } = useWallet();
 
   const [balance, setBalance] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Get balance on connection change
+  // Get wallet balance on connection
   useEffect(() => {
     if (connected && connection && publicKey) {
       setIsLoading(true);
@@ -23,20 +26,12 @@ export default function BalanceDisplay() {
       setBalance(0);
       setIsLoading(false);
     }
-  }, [connection, publicKey, connected]);
+  }, [connection, publicKey, connected, externalUpdate]);
 
-  // Display the balance
-  return connected ? (
+  // Display balance when loaded
+  return (
     <div className="text-white">
-      {isLoading ? (
-        <h2>&nbsp;</h2>
-      ) : (
-        <h2>Balance: {balance} SOL</h2>
-      )}
-    </div>
-  ) : (
-    <div className="text-white">
-      <h2>Wallet Not Connected</h2>
+      {isLoading ? <h2>&nbsp;</h2> : <h2>Balance: {balance} SOL</h2>}
     </div>
   );
 }

@@ -1,9 +1,9 @@
 "use client";
 import useCheckWalletDisconnection from "@/app/hooks/useCheckWalletDisconnection";
-import BalanceDisplay from "@/components/BalanceDisplay";
 import SendSolForm from "@/components/SendSolForm";
 
 export default function Dashboard() {
+
   useCheckWalletDisconnection();
 
   return (
@@ -13,9 +13,6 @@ export default function Dashboard() {
           Send SOL
         </div>
       </h1>
-      <div className="text-2xl mt-4 ml-4 font-mono">
-        <BalanceDisplay />
-      </div>
       <SendSolForm />
     </div>
   );

@@ -7,8 +7,8 @@ import BalanceDisplay from "./BalanceDisplay";
 export default function SendSolForm() {
   const [sol, setSol] = useState("");
   const [recipient, setRecipient] = useState("");
-  const [transactionInfo, setTransactionInfo] = useState<string | null>(null);
-  const [showTransactionInfo, setShowTransactionInfo] = useState(true);
+  const [transactionInfo, setTransactionInfo] = useState("");
+  const [showTransactionInfo, setShowTransactionInfo] = useState(false);
   const [balanceUpdate, setBalanceUpdate] = useState(false);
   
   const updateBalance = () => {
@@ -21,7 +21,8 @@ export default function SendSolForm() {
 
   const sendSol = (event: React.FormEvent) => {
     event.preventDefault();
-    setTransactionInfo(null);
+    setShowTransactionInfo(false);
+    setTransactionInfo(""); 
     
     // Check if wallet is connected
     if (!connection || !publicKey) {
@@ -45,8 +46,8 @@ export default function SendSolForm() {
     // Send transaction and display confirmation
     sendTransaction(transaction, connection).then((signature) => {
       const transactionUrl = `https://explorer.solana.com/tx/${signature}?cluster=devnet`;
-      setShowTransactionInfo(true)
       setTransactionInfo(transactionUrl);
+      setShowTransactionInfo(true)
 
       // Update balance, giving 1 second for Solana to process transaction
       setTimeout(updateBalance, 1000);
@@ -96,7 +97,7 @@ export default function SendSolForm() {
             Send
           </button>
         </form>
-        {transactionInfo && showTransactionInfo && (
+        {showTransactionInfo && (
           <div className="mt-5 text-center border-purple-500 border p-5 relative">
             <button
               onClick={() => setShowTransactionInfo(false)}

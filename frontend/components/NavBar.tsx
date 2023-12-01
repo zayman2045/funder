@@ -13,7 +13,7 @@ export const NavBar: FC = () => {
       <div className="space-y-4">
         <Link href="/dashboard">
           <div
-            className={`border-b border-purple-500 w-48 h-10 text-center pb-2 hover:border-custom-teal ${
+            className={`border-b border-purple-500 w-48 h-10 text-center pb-2 mt-1.5 hover:border-custom-teal ${
               pathname === "/dashboard"
                 ? "text-custom-teal border-custom-teal"
                 : ""
@@ -34,24 +34,24 @@ export const NavBar: FC = () => {
             Send SOL
           </Link>
           <Link
-            href="/transaction1"
+            href="/dashboard/gameReviews"
             className={`border border-purple-500 bg-black w-full text-center px-4 py-2 hover:border-custom-teal hover:text-custom-teal ${
               pathname === "/transaction1"
                 ? "text-custom-teal border-custom-teal"
                 : ""
             }`}
           >
-            Transaction 1
+            Game Reviews
           </Link>
           <Link
-            href="/transaction2"
+            href="/dashboard/splTokens"
             className={`border border-purple-500 bg-black w-full text-center px-4 py-2 hover:border-custom-teal hover:text-custom-teal ${
               pathname === "/transaction2"
                 ? "text-custom-teal border-custom-teal"
                 : ""
             }`}
           >
-            Transaction 2
+            SPL Tokens
           </Link>
         </div>
         <div className="flex justify-center">

@@ -11,6 +11,7 @@ export default function SendSolForm() {
   const [showTransactionInfo, setShowTransactionInfo] = useState(false);
   const [balanceUpdate, setBalanceUpdate] = useState(false);
   
+  // Sends message to BalanceDisplay.tsx to update balance
   const updateBalance = () => {
     setBalanceUpdate((prevState) => !prevState);
   };

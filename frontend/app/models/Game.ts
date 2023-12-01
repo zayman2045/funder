@@ -19,6 +19,7 @@ export class Game {
         new Game('Final Fantasy XVI', 5, `Easily the best Final Fantasy game since FFVII. It's a return to form for the series, with a great story and characters. The combat is also really fun, and the graphics are stunning.`),
     ]
 
+    // Schema for data being serialized to the blockchain
     borshInstructionSchema = borsh.struct([
         borsh.u8('variant'),
         borsh.str('title'),
@@ -30,5 +31,27 @@ export class Game {
         const buffer = Buffer.alloc(1000)
         this.borshInstructionSchema.encode({ ...this, variant: 0 }, buffer)
         return buffer.subarray(0, this.borshInstructionSchema.getSpan(buffer))
+      }
+
+      // Schema for data being deserialized from the blockchain
+      static borshAccountSchema = borsh.struct([
+        borsh.bool('initialized'),
+        borsh.u8('rating'),
+        borsh.str('title'),
+        borsh.str('description'),
+      ])
+
+      static deserialize(buffer?: Buffer): Game|null {
+        if (!buffer) {
+          return null
+        }
+    
+        try {
+          const { title, rating, description } = this.borshAccountSchema.decode(buffer)
+          return new Game(title, rating, description)
+        } catch(error) {
+          console.log('Deserialization error:', error)
+          return null
+        }
       }
 }

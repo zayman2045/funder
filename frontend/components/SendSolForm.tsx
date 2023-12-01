@@ -1,4 +1,4 @@
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import * as web3 from "@solana/web3.js";
 import Link from "next/link";
@@ -70,7 +70,7 @@ export default function SendSolForm() {
               Amount (in SOL) to send:
             </label>
             <input
-              className="mt-1 p-2 w-full border rounded-md"
+              className="mt-1 p-2 w-full border rounded-md text-black"
               id="amount"
               type="text"
               placeholder="e.g. 0.1"
@@ -83,7 +83,7 @@ export default function SendSolForm() {
               Send SOL to:
             </label>
             <input
-              className="mt-1 p-2 w-full border rounded-md"
+              className="mt-1 p-2 w-full border rounded-md text-black"
               id="recipient"
               type="text"
               placeholder="e.g. 4Zw1fXuYuJhWhu9KLEYMhiPEiqcpKd6akw3WRZCv84HA"

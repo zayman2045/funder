@@ -1,5 +1,7 @@
 "use client";
 import useCheckWalletDisconnection from "@/app/hooks/useCheckWalletDisconnection";
+import { Game } from "@/app/models/Game";
+import GameReviewForm from "@/components/GameReviewForm";
 
 export default function GameReviews() {
   useCheckWalletDisconnection();
@@ -11,8 +13,9 @@ export default function GameReviews() {
           Game Reviews
         </div>
       </h1>
-      <div className="text-2xl mt-4 ml-4 font-mono">
-        Hello Games
+      <div>
+        <GameReviewForm />
+        <h2 className="text-2xl mt-4 ml-4 font-mono">Existing Reviews</h2>
       </div>
     </div>
   );

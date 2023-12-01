@@ -1,3 +1,4 @@
+import * as borsh from '@project-serum/borsh'
 
 export class Game {
     title: string;
@@ -17,4 +18,17 @@ export class Game {
         new Game('Super Mario Bros Wonder', 4, `The latest Mario game is a lot of fun. The new powerups are really cool, and the levels are well-designed. The only downside is that the game is a bit short.`),
         new Game('Final Fantasy XVI', 5, `Easily the best Final Fantasy game since FFVII. It's a return to form for the series, with a great story and characters. The combat is also really fun, and the graphics are stunning.`),
     ]
+
+    borshInstructionSchema = borsh.struct([
+        borsh.u8('variant'),
+        borsh.str('title'),
+        borsh.u8('rating'),
+        borsh.str('description'),
+      ])
+
+      serialize(): Buffer {
+        const buffer = Buffer.alloc(1000)
+        this.borshInstructionSchema.encode({ ...this, variant: 0 }, buffer)
+        return buffer.subarray(0, this.borshInstructionSchema.getSpan(buffer))
+      }
 }

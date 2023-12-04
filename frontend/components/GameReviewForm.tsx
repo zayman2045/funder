@@ -15,9 +15,10 @@ export default function GameReviewForm() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    const movie = new Game(title, rating, message);
-    handleTransactionSubmit(movie);
+    const game = new Game(title, rating, message);
+    handleTransactionSubmit(game);
   };
+
   const handleTransactionSubmit = async (game: Game) => {
     if (!publicKey) {
       alert("Please connect your wallet!");
@@ -27,7 +28,7 @@ export default function GameReviewForm() {
     const buffer = game.serialize();
     const transaction = new web3.Transaction();
 
-    // Find the PDA address
+    // Find the PDA of the game with the given title
     const [pda] = web3.PublicKey.findProgramAddressSync(
       [publicKey.toBuffer(), Buffer.from(game.title)],
       new web3.PublicKey(REVIEW_PROGRAM_ID)

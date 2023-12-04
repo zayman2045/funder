@@ -10,12 +10,15 @@ export default function GameList() {
     const { connection } = useConnection()
     const [games, setGames] = useState<Game[]>([])
     const [page, setPage] = useState(1)
+    const itemsPerPage = 5;
+    
 
+    // Fetch the page of games
     useEffect(() => {
         GameCoordinator.fetchPage(
           connection,
           page,
-          5
+          itemsPerPage
         ).then(setGames)
       }, [page])
     
@@ -35,7 +38,7 @@ export default function GameList() {
                     </button>
                 }
                 {
-                    GameCoordinator.accounts.length > page * 2 &&
+                    GameCoordinator.accounts.length > page * itemsPerPage &&
                     <button 
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                         onClick={() => setPage(page + 1)}

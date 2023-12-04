@@ -2,11 +2,9 @@
 import {useEffect, useState } from 'react'
 import GameCard from './GameCard'
 import { Game } from '@/app/models/Game'
-import * as web3 from '@solana/web3.js'
 import { useConnection } from "@solana/wallet-adapter-react"
 import { GameCoordinator } from '@/app/models/GameCoordinator'
 
-const REVIEW_PROGRAM_ID = 'CenYq6bDRB7p73EjsPEpiYN7uveyPUTdXkDkgUduboaN'
 
 export default function GameList() {
     const { connection } = useConnection()

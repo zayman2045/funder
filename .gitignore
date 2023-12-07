@@ -3,4 +3,7 @@
 **/target
 **/dist
 **/node_modules
+**/my-solana-wallet
+**/test-ledger
 .vscode
+.env

@@ -31,10 +31,12 @@ pub fn add_game_review(
     rating: u8,
     description: String,
 ) -> ProgramResult {
-    msg!("Adding movie review...");
+    msg!("Adding game review...");
     msg!("Title: {}", title);
     msg!("Rating: {}", rating);
     msg!("Description: {}", description);
+    msg!("Program ID: {}", program_id);
+    msg!("Accounts: {:?}", accounts);
 
     Ok(())
 }

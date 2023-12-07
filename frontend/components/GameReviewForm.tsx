@@ -3,7 +3,7 @@ import { useState } from "react";
 import * as web3 from "@solana/web3.js";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 
-const REVIEW_PROGRAM_ID = "CenYq6bDRB7p73EjsPEpiYN7uveyPUTdXkDkgUduboaN";
+const REVIEW_PROGRAM_ID = "4r6uF3pQgK5aekUiziAYLndX5DCz2NaU3HuvfeBtgiq6";
 
 export default function GameReviewForm() {
   const [title, setTitle] = useState("");

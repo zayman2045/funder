@@ -1,5 +1,5 @@
-use borsh::{BorshDeserialize};
-use solana_program::{program_error::ProgramError};
+use borsh::BorshDeserialize;
+use solana_program::program_error::ProgramError;
 
 pub enum GameInstruction {
     AddGameReview {
@@ -12,7 +12,7 @@ pub enum GameInstruction {
 impl GameInstruction {
     // Unpack the borsh serialized vector
     pub fn unpack(byte_array: &[u8]) -> Result<Self, ProgramError> {
-        
+
         // Split the first byte to separate the variant from the payload
         let (variant, rest) = byte_array.split_first().ok_or(ProgramError::InvalidInstructionData)?;
         let payload = GameReviewPayload::try_from_slice(rest).unwrap();

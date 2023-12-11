@@ -3,7 +3,7 @@ import { useState } from "react";
 import * as web3 from "@solana/web3.js";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 
-const REVIEW_PROGRAM_ID = "4r6uF3pQgK5aekUiziAYLndX5DCz2NaU3HuvfeBtgiq6";
+const GAME_REVIEW_PROGRAM_ID = "4r6uF3pQgK5aekUiziAYLndX5DCz2NaU3HuvfeBtgiq6";
 
 export default function GameReviewForm() {
   const [title, setTitle] = useState("");
@@ -31,7 +31,7 @@ export default function GameReviewForm() {
     // Find the PDA of the game with the given title
     const [pda] = web3.PublicKey.findProgramAddressSync(
       [publicKey.toBuffer(), Buffer.from(game.title)],
-      new web3.PublicKey(REVIEW_PROGRAM_ID)
+      new web3.PublicKey(GAME_REVIEW_PROGRAM_ID)
     );
 
     // Create instruction to create a new review
@@ -54,7 +54,7 @@ export default function GameReviewForm() {
         },
       ],
       data: buffer,
-      programId: new web3.PublicKey(REVIEW_PROGRAM_ID),
+      programId: new web3.PublicKey(GAME_REVIEW_PROGRAM_ID),
     });
 
     transaction.add(instruction);

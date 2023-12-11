@@ -1,7 +1,7 @@
 import * as web3 from '@solana/web3.js'
 import { Game } from '../models/Game'
 
-const REVIEW_PROGRAM_ID = 'CenYq6bDRB7p73EjsPEpiYN7uveyPUTdXkDkgUduboaN'
+const GAME_REVIEW_PROGRAM_ID = '4r6uF3pQgK5aekUiziAYLndX5DCz2NaU3HuvfeBtgiq6'
 
 export class GameCoordinator { 
     static accounts: web3.PublicKey[] = []
@@ -9,7 +9,7 @@ export class GameCoordinator {
     // Fetch only enough data to sort the accounts
     static async prefetchAccounts(connection: web3.Connection) {
       const accounts = await connection.getProgramAccounts(
-        new web3.PublicKey(REVIEW_PROGRAM_ID),
+        new web3.PublicKey(GAME_REVIEW_PROGRAM_ID),
         {
           dataSlice: { offset: 2, length: 18 },
         }

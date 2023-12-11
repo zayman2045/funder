@@ -15,7 +15,7 @@ impl GameInstruction {
 
         // Split the first byte to separate the variant from the payload
         let (variant, rest) = byte_array.split_first().ok_or(ProgramError::InvalidInstructionData)?;
-        let payload = GameReviewPayload::try_from_slice(rest).unwrap();
+        let payload = GameReviewPayload::try_from_slice(rest).expect("Failed to deserialize byte array");
 
         // Match the variant and return the proper instruction
         Ok(match variant {

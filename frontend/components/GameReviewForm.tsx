@@ -5,7 +5,11 @@ import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 
 const GAME_REVIEW_PROGRAM_ID = "4r6uF3pQgK5aekUiziAYLndX5DCz2NaU3HuvfeBtgiq6";
 
-export default function GameReviewForm() {
+interface GameReviewFormProps {
+  onFormSubmit: () => void;
+}
+
+export default function GameReviewForm({onFormSubmit} : GameReviewFormProps) {
   const [title, setTitle] = useState("");
   const [rating, setRating] = useState(0);
   const [message, setMessage] = useState("");
@@ -64,6 +68,8 @@ export default function GameReviewForm() {
       console.log(
         `Transaction submitted: https://explorer.solana.com/tx/${txid}?cluster=devnet`
       );
+      onFormSubmit();
+      console.log('Form submitted');
     } catch (e) {
       alert(JSON.stringify(e));
     }

@@ -1,11 +1,13 @@
 "use client";
 import useCheckWalletDisconnection from "@/app/hooks/useCheckWalletDisconnection";
-import { Game } from "@/app/models/Game";
 import GameList from "@/components/GameList";
 import GameReviewForm from "@/components/GameReviewForm";
+import { useState } from "react";
 
 export default function GameReviews() {
   useCheckWalletDisconnection();
+
+  const [refreshKey, setRefreshKey] = useState(0);
 
   return (
     <div>
@@ -15,9 +17,13 @@ export default function GameReviews() {
         </div>
       </h1>
       <div>
-        <GameReviewForm />
+        <GameReviewForm
+          onFormSubmit={() => {
+            setRefreshKey((prevKey) => prevKey + 1);
+          }}
+        />
         <h2 className="text-2xl mt-4 ml-4 font-mono">Existing Reviews</h2>
-        <GameList />
+        <GameList refreshKey={refreshKey} />
       </div>
     </div>
   );

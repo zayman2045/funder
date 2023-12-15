@@ -13,16 +13,13 @@ Funder leverages the power of blockchain technology to provide a secure, high-pe
 
 ## Usage
 
-Before using Funder, make sure you have Node.js and npm installed. If not, you can download and install them from [here](https://nodejs.org/en/download/).
+Before using Funder, make sure you have Docker and Docker Compose installed. If not, you can download and install Docker from [here](https://docs.docker.com/get-docker/) and Docker Compose from [here](https://docs.docker.com/compose/install/).
 
-Once Node.js and npm are installed, cd into the frontend directory and install the dependencies:
-
-```zsh
-npm install
-```
-
-Then, you can start the application with:
+Once Docker and Docker Compose are installed, you can build and run the application using the following command from the project root directory:
 
 ```zsh
-npm run dev
+docker-compose up --build
 ``` 
+
+The application will be available at http://localhost:3000.
+

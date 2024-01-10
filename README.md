@@ -11,7 +11,7 @@ Funder leverages the power of blockchain technology to provide a secure, high-pe
 * Tokens
     * TODO
 
-## Usage
+## Getting Started
 
 Before using Funder, make sure you have Docker and Docker Compose installed. If not, you can download and install Docker from [here](https://docs.docker.com/get-docker/) and Docker Compose from [here](https://docs.docker.com/compose/install/).
 

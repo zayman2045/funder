@@ -15,7 +15,7 @@ Funder leverages the power of blockchain technology to provide a secure, high-pe
 
 ### To run this project locally:
 
-Before using Funder, make sure you have Docker and Docker Compose installed. If not, you can download and install Docker from [here](https://docs.docker.com/get-docker/) and Docker Compose from [here](https://docs.docker.com/compose/install/).
+Before running the application, make sure you have Docker and Docker Compose installed. If not, you can download and install Docker from [here](https://docs.docker.com/get-docker/) and Docker Compose from [here](https://docs.docker.com/compose/install/).
 
 Once Docker and Docker Compose are installed, you can build and run the application using the following command from the project root directory:
 

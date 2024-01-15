@@ -1,6 +1,9 @@
+//! Handles instructions for the game review program
+
 use borsh::BorshDeserialize;
 use solana_program::program_error::ProgramError;
 
+/// Instructions that can be executed by the game review program.
 pub enum GameInstruction {
     AddGameReview {
         title: String,
@@ -10,7 +13,7 @@ pub enum GameInstruction {
 }
 
 impl GameInstruction {
-    // Unpack the borsh serialized vector
+    /// Unpacks the borsh serialized vector.
     pub fn unpack(byte_array: &[u8]) -> Result<Self, ProgramError> {
 
         // Split the first byte to separate the variant from the payload
@@ -25,7 +28,7 @@ impl GameInstruction {
     }
 }
 
-// Intermediary type to hold deserialized instruction data
+/// Internal struct used to deserialize the payload
 #[derive(BorshDeserialize)]
 struct GameReviewPayload {
     title: String,

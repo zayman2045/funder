@@ -1,3 +1,5 @@
+//! Game review program for the Solana blockchain.
+
 pub mod instruction;
 pub mod state;
 
@@ -19,7 +21,9 @@ use std::convert::TryInto;
 
 entrypoint!(process_instruction);
 
-// Replaces solana_program::borsh0_10::try_from_slice_unchecked which depends on an old version of borsh
+/// Deserializes data from a slice.
+/// 
+/// This helper function replaces solana_program::borsh0_10::try_from_slice_unchecked which depends on an old version of borsh.
 pub fn try_from_slice_unchecked<T: borsh::BorshDeserialize>(
     data: &[u8],
 ) -> Result<T, ProgramError> {
@@ -30,7 +34,7 @@ pub fn try_from_slice_unchecked<T: borsh::BorshDeserialize>(
     }
 }
 
-// Current Program Id: 4r6uF3pQgK5aekUiziAYLndX5DCz2NaU3HuvfeBtgiq6
+/// Serves as the main entry point for the game review program.
 pub fn process_instruction(
     program_id: &Pubkey,
     accounts: &[AccountInfo],
@@ -47,6 +51,7 @@ pub fn process_instruction(
     }
 }
 
+/// Creates a new account for the game review, initializes it with the provided data, and then updates the state of the account.
 pub fn add_game_review(
     program_id: &Pubkey,
     accounts: &[AccountInfo],

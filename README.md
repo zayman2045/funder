@@ -20,7 +20,7 @@ The backend library crate is used to define the on-chain programs that are deplo
 
 ### To run this project locally:
 
-This project requires the Phantom browser extension. If you don't already have it, you can download it [here](https://phantom.app/download). Follow Phantom’s instructions for creating a new account and a new wallet. Once you have a wallet, click the settings gear on the bottom right in the Phantom UI. Scroll down and click on the line item “Change Network” and select “Devnet.”
+This project requires the Phantom browser extension. If you don't already have it, you can download it [here](https://phantom.app/download). Follow Phantom’s instructions for creating a new account and a new wallet. Once you have a wallet, click the settings gear on the bottom left in the Phantom UI sidebar menu. Scroll down and click on the line item “Developer Settings” and select “Solana Devnet.”
 
 Before running the application, make sure you have Docker and Docker Compose installed. If not, you can download and install Docker from [here](https://docs.docker.com/get-docker/) and Docker Compose from [here](https://docs.docker.com/compose/install/).
 

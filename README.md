@@ -9,6 +9,8 @@ Funder leverages the power of blockchain technology to provide a secure, high-pe
 * Game Reviews
     * A review system where users can read and write reviews for their favorite video games.
 
+The frontend enhances the user experience by leveraging client-side rendering. It utilizes React hooks and components to efficiently retrieve data from the blockchain. Critical tools from the `@solana/web3.js` and `@solana/wallet-adapter-react` npm packages are imported to support these operations. The `WalletContextProvider` component, integrated into the overall application layout, manages a persistent connection to Solana's Devnet. This connection state can be accessed anywhere within the site using the `useWallet` and `useConnection` hooks.
+
 ## Getting Started
 
 ### To run this project locally:

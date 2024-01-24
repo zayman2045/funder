@@ -59,6 +59,7 @@ pub fn add_game_review(
     rating: u8,
     description: String,
 ) -> ProgramResult {
+    // Log messages
     msg!("Adding game review...");
     msg!("Title: {}", title);
     msg!("Rating: {}", rating);
@@ -66,6 +67,7 @@ pub fn add_game_review(
     msg!("Program ID: {}", program_id);
     msg!("Accounts: {:?}", accounts);
 
+    // Unpack the accounts involved in the instruction
     let account_info_iter = &mut accounts.iter();
     let initializer = next_account_info(account_info_iter)?;
     let pda_account = next_account_info(account_info_iter)?;

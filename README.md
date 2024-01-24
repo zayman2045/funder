@@ -7,11 +7,13 @@ Funder is a full-stack decentralized application (dApp) that runs a custom Solan
 Funder leverages the power of blockchain technology to provide a secure, high-performance, and cost effective transaction platform. It is built on the Solana devnet blockchain, utilizing Typescript and Next.js for the frontend and Rust for the on-chain code. Once a user connects their Phantom wallet, the Funder UI provides access to a wallet dashboard and a custom on-chain program:
 
 * Game Reviews
-    * A review system where users can read and write reviews for their favorite video games
+    * A review system where users can read and write reviews for their favorite video games.
 
 ## Getting Started
 
 ### To run this project locally:
+
+This project requires the Phantom browser extension. If you don't already have it, you can download it [here](https://phantom.app/download). Follow Phantom’s instructions for creating a new account and a new wallet. Once you have a wallet, click the settings gear on the bottom right in the Phantom UI. Scroll down and click on the line item “Change Network” and select “Devnet.”
 
 Before running the application, make sure you have Docker and Docker Compose installed. If not, you can download and install Docker from [here](https://docs.docker.com/get-docker/) and Docker Compose from [here](https://docs.docker.com/compose/install/).
 

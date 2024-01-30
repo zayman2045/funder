@@ -4,7 +4,7 @@ Funder is a full-stack decentralized application (dApp) that runs custom Solana 
 
 ## Overview
 
-Funder leverages the power of blockchain technology to provide a secure, high-performance, and cost effective transaction platform. It is built on the Solana devnet blockchain, utilizing Typescript and Next.js for the frontend and Rust for the on-chain code. Once a user connects their Phantom wallet, the Funder UI provides access to a wallet dashboard and various on-chain programs:
+Funder leverages the power of blockchain technology to provide a secure, high-performance, and cost effective transaction platform. It is built on the Solana devnet blockchain, utilizing Typescript and Next.js for the frontend and Rust for the on-chain code. Once a user connects their Phantom wallet, the Funder UI provides access to a wallet dashboard and various interactive programs:
 
 * Send SOL
     * A transaction interface that allows users to view their SOL balance and specify the amount to transfer to a chosen public key.

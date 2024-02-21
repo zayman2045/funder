@@ -43,7 +43,7 @@ export const NavBar: FC = () => {
           >
             Game Reviews
           </Link>
-          <Link
+          {/* <Link
             href="/dashboard/splTokens"
             className={`border border-purple-500 bg-black w-full text-center px-4 py-2 hover:border-custom-teal hover:text-custom-teal ${
               pathname === "/dashboard/splTokens"
@@ -52,7 +52,7 @@ export const NavBar: FC = () => {
             }`}
           >
             SPL Tokens
-          </Link>
+          </Link> */}
         </div>
         <div className="flex justify-center">
           <span className="inline-block bg-purple-500 hover:bg-blue-700 text-white font-bold rounded">

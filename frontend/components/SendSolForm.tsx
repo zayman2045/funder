@@ -10,7 +10,7 @@ export default function SendSolForm() {
   const [transactionInfo, setTransactionInfo] = useState("");
   const [showTransactionInfo, setShowTransactionInfo] = useState(false);
   const [balanceUpdate, setBalanceUpdate] = useState(false);
-  
+
   // Sends message to BalanceDisplay.tsx to update balance
   const updateBalance = () => {
     setBalanceUpdate((prevState) => !prevState);
@@ -20,35 +20,40 @@ export default function SendSolForm() {
   const { connection } = useConnection();
   const { publicKey, sendTransaction } = useWallet();
 
+  // Event handler for sending SOL
   const sendSol = (event: React.FormEvent) => {
     event.preventDefault();
+
+    // Reset transaction info
     setShowTransactionInfo(false);
-    setTransactionInfo(""); 
-    
+    setTransactionInfo("");
+
     // Check if wallet is connected
     if (!connection || !publicKey) {
       alert("Connection not found");
       return;
     }
 
-    // Create transaction and transfer instruction
+    // Create new transaction
     const transaction = new web3.Transaction();
+
+    // Create transfer instruction using form data
     const recipientPublicKey = new web3.PublicKey(recipient);
     const lamports = web3.LAMPORTS_PER_SOL * parseFloat(sol);
-
     const transferSolInstruction = web3.SystemProgram.transfer({
       fromPubkey: publicKey,
       toPubkey: recipientPublicKey,
       lamports,
     });
 
+    // Add transfer instruction to transaction
     transaction.add(transferSolInstruction);
 
-    // Send transaction and display confirmation
+    // Send transaction and display confirmation with transaction URL
     sendTransaction(transaction, connection).then((signature) => {
       const transactionUrl = `https://explorer.solana.com/tx/${signature}?cluster=devnet`;
       setTransactionInfo(transactionUrl);
-      setShowTransactionInfo(true)
+      setShowTransactionInfo(true);
 
       // Update balance, giving 1 second for Solana to process transaction
       setTimeout(updateBalance, 1000);

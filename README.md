@@ -10,10 +10,10 @@ Funder leverages the power of blockchain technology to provide a secure, high-pe
     * The homepage serves as a personal dashboard for users. It displays the user's current SOL balance in real-time. Additionally, it provides an option for users to request an airdrop of 1 SOL, which can be useful for testing purposes or for new users who want to get started with SOL.
 
 * Send SOL
-    * An easy to use transaction interface that allows users to transfer SOL to any public key of their choice. Users can specify the exact amount of SOL they wish to send, providing them with full control over their transactions.
+    * An easy-to-use transaction interface allows users to transfer SOL to any public key of their choice. Users can specify the exact amount of SOL they wish to send, providing them with full control over their transactions.
 
 * Game Reviews
-    * Users can read reviews written by other gamers to get insights about various games, and share their own opinions by submitting reviews of their own.
+    * Users can read reviews written by other gamers to gain insights about various games, and share their own opinions by submitting their own reviews.
 
 The frontend enhances the user experience by leveraging client-side rendering. It utilizes React hooks and components to efficiently retrieve data from the blockchain. Critical tools from the `@solana/web3.js` and `@solana/wallet-adapter-react` npm packages are imported to support these operations. The `WalletContextProvider` component, integrated into the overall application layout, manages a persistent connection to Solana's Devnet. This connection state can be accessed anywhere within the site using the `useWallet` and `useConnection` hooks, allowing the program to securely build and send transactions with the user's public key.
 

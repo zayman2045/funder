@@ -4,7 +4,7 @@ Funder is a full-stack decentralized application (dApp) that runs custom Solana 
 
 ## Overview
 
-Funder leverages the power of blockchain technology to provide a secure, high-performance, and cost effective transaction platform. It is built on the Solana devnet blockchain, utilizing Typescript and Next.js for the frontend and Rust for the on-chain code. Once a user connects their Phantom wallet, the Funder UI provides access to a wallet dashboard and various on-chain programs:
+Funder leverages the power of blockchain technology to provide a secure, high-performance, and cost effective transaction platform. It is built on the Solana Devnet blockchain, utilizing Typescript and Next.js for the frontend and Rust for the on-chain code. Once a user connects their Phantom wallet, the Funder UI provides access to a wallet dashboard and various interactive programs:
 
 * Send SOL
     * A transaction interface that allows users to view their SOL balance and specify the amount to transfer to a chosen public key.
@@ -20,7 +20,7 @@ The backend library crate is used to define the on-chain programs that are deplo
 
 ### To run this project locally:
 
-This project requires the Phantom browser extension. If you don't already have it, you can download it [here](https://phantom.app/download). Follow Phantom’s instructions for creating a new account and a new wallet. Once you have a wallet, click the settings gear on the bottom right in the Phantom UI. Scroll down and click on the line item “Change Network” and select “Devnet.”
+This project requires the Phantom browser extension. If you don't already have it, you can download it [here](https://phantom.app/download). Follow Phantom’s instructions for creating a new account and a new wallet. Once you have a wallet, click the settings gear on the bottom left in the Phantom UI sidebar menu. Scroll down and click on the line item “Developer Settings” and select “Solana Devnet.”
 
 Before running the application, make sure you have Docker and Docker Compose installed. If not, you can download and install Docker from [here](https://docs.docker.com/get-docker/) and Docker Compose from [here](https://docs.docker.com/compose/install/).
 

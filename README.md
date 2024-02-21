@@ -6,11 +6,14 @@ Funder is a full-stack decentralized application (dApp) that runs custom Solana 
 
 Funder leverages the power of blockchain technology to provide a secure, high-performance, and cost effective transaction platform. It is built on the Solana Devnet blockchain, utilizing Typescript and Next.js for the frontend and Rust for the on-chain code. Once a user connects their Phantom wallet, the Funder UI provides access to a wallet dashboard and various interactive programs:
 
+* Dashboard
+    * The homepage serves as a personal dashboard for users. It displays the user's current SOL balance in real-time. Additionally, it provides an option for users to request an airdrop of 1 SOL, which can be useful for testing purposes or for new users who want to get started with SOL.
+
 * Send SOL
-    * A transaction interface that allows users to view their SOL balance and specify the amount to transfer to a chosen public key.
+    * An easy to use transaction interface that allows users to transfer SOL to any public key of their choice. Users can specify the exact amount of SOL they wish to send, providing them with full control over their transactions.
 
 * Game Reviews
-    * A review system where users can read and write reviews for their favorite video games.
+    * Users can read reviews written by other gamers to get insights about various games, and share their own opinions by submitting reviews of their own.
 
 The frontend enhances the user experience by leveraging client-side rendering. It utilizes React hooks and components to efficiently retrieve data from the blockchain. Critical tools from the `@solana/web3.js` and `@solana/wallet-adapter-react` npm packages are imported to support these operations. The `WalletContextProvider` component, integrated into the overall application layout, manages a persistent connection to Solana's Devnet. This connection state can be accessed anywhere within the site using the `useWallet` and `useConnection` hooks, allowing the program to securely build and send transactions with the user's public key.
 

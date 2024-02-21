@@ -1,5 +1,5 @@
 "use client";
-import BalanceDisplay from "@/components/BalanceDisplay";
+import AirdropSolForm from "@/components/AirdropSolForm";
 import useCheckWalletDisconnection from "../hooks/useCheckWalletDisconnection";
 
 export default function Dashboard() {
@@ -12,8 +12,8 @@ export default function Dashboard() {
           Dashboard
         </div>
       </h1>
-      <div className="text-2xl mt-4 ml-4 font-mono">
-        <BalanceDisplay externalUpdate={false}/>
+      <div>
+        <AirdropSolForm />
       </div>
     </div>
   );
